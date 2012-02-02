@@ -22,21 +22,17 @@
     };
     var map = new google.maps.Map(document.getElementById('map'), options);
 
-    google.maps.event.addListener(map, 'click', function(event){
-      var marker = new google.maps.Marker({
-        position: event.latLng,
-        draggable: true,
-        icon: new google.maps.MarkerImage('dotinstall.png'),
-        title: 'マーカーですよ',
-        map: map
-      });
-    });
-
     var infoWindow = new google.maps.InfoWindow({
       content: '<strong>渋谷のあたり</strong>だよ！',
-      position: map.getCenter()
     });
-    infoWindow.open(map);
+
+    var marker = new google.maps.Marker({
+      position: map.getCenter(),
+      map: map
+    });
+    google.maps.event.addListener(marker, 'click', function() {
+      infoWindow.open(map, marker);
+    });
   </script>
 </body>
 </html>
