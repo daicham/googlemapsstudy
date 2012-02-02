@@ -13,6 +13,18 @@
 <body>
   <div id="map"></div>
   <script>
+    // geocoding
+    // 住所 -> 緯度経度
+    var geocorder = new google.maps.Geocorder();
+
+    var geocorder.geocode({
+      'address': '東京都目黒区'
+    }, function(result, status) {  
+      if (status == google.maps.GeocorderStatus.OK) {
+      } else {
+        alert('エラーです！');
+      }
+    });
     var latlng = new google.maps.LatLng(35.66, 139.69);
     var options = {
       zoom: 15,
@@ -22,17 +34,6 @@
     };
     var map = new google.maps.Map(document.getElementById('map'), options);
 
-    var infoWindow = new google.maps.InfoWindow({
-      content: '<strong>渋谷のあたり</strong>だよ！',
-    });
-
-    var marker = new google.maps.Marker({
-      position: map.getCenter(),
-      map: map
-    });
-    google.maps.event.addListener(marker, 'click', function() {
-      infoWindow.open(map, marker);
-    });
   </script>
 </body>
 </html>
