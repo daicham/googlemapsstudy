@@ -32,6 +32,11 @@
       });
     });
 
+    var infoWindow = new google.maps.InfoWindow({
+      content: '<strong>渋谷のあたり</strong>だよ！',
+      position: map.getCenter()
+    });
+    infoWindow.open(map);
   </script>
 </body>
 </html>
