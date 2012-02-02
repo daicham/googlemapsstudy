@@ -35,10 +35,13 @@
             map: map
           });
           geocoder.geocode({
-            'latlng': event.latlng
+            'latLng': event.latLng
           }, function(result, status) {
             if (status == google.maps.GeocoderStatus.OK) {
-
+              var infoWindow = new google.maps.InfoWindow({
+                content: result[0].formatted_address
+              });
+              infoWindow.open(map, marker);
             } else {
               alert("エラー！");
             } 
