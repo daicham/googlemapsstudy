@@ -15,12 +15,12 @@
   <script>
     // geocoding
     // 住所 -> 緯度経度
-    var geocorder = new google.maps.Geocorder();
+    var geocoder = new google.maps.Geocoder();
 
-    var geocorder.geocode({
+    geocoder.geocode({
       'address': '東京都目黒区'
     }, function(result, status) {  
-      if (status == google.maps.GeocorderStatus.OK) {
+      if (status == google.maps.GeocoderStatus.OK) {
       } else {
         alert('エラーです！');
       }
