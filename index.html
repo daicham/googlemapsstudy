@@ -34,6 +34,15 @@
             position: event.latLng,
             map: map
           });
+          geocoder.geocode({
+            'latlng': event.latlng
+          }, function(result, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+
+            } else {
+              alert("エラー！");
+            } 
+          });
         });
       } else {
         alert('エラーです！');
